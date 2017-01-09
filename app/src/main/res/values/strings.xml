@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">NoBroker</string>
+    <string name="harry_cafe">Harry\'s Bar + Cafe</string>
+    <string name="cafe">Cafe, American</string>
+    <string name="cost_for_two">$$$$</string>
+    <string name="rating">3.9</string>
+    <string name="variouss_outlets">4 outlets</string>
+    <string name="swiggy_image">Swiggy Image</string>
+    <string name="retry">Retry</string>
+    <string name="cancel">Cancel</string>
+    <string name="no_network">No Internet available.</string>
+    <string name="rupee_symbol">\u20B9</string>
+
+    <string name="take_picture">Take picture</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="request_permission">Prmission needed</string>
+    <string name="picture">Take a Picture</string>
+    <string name="camera_error">Something went wrong...</string>
+    <string name="intro_message">Intro</string>
+    <string name="dummy_flat_title">2 BHK in hSR Layout</string>
+    <string name="property_address">at Independent property, Behind ICICI Bank, near HSR</string>
+    <string name="dummy_flat_area">1300Sq.ft.</string>
+    <string name="apartment_type">Apartment Type</string>
+    <string name="one_rk">1 RK</string>
+    <string name="property_type">Property Type</string>
+    <string name="apaprtment">Apartment</string>
+    <string name="independent_house">Independent House</string>
+    <string name="independent_floor">Independent Floor</string>
+    <string name="furnished_type">Furnished</string>
+    <string name="two_rk">2 BHK</string>
+    <string name="two_bhk">2 BHK</string>
+    <string name="three_bhk">3 BHK</string>
+    <string name="four_bhk">4 BHK</string>
+    <string name="fully_furnished">Fully Furnished</string>
+    <string name="semi_furnished">Semi Furnished</string>
+    <string name="apply">Apply</string>
+    <string name="clear">Clear</string>
+</resources>
