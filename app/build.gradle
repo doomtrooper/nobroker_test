@@ -31,7 +31,6 @@ dependencies {
     compile "com.android.support:percent:$rootProject.supportLibraryVersion"
     compile "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
     compile "com.android.support:support-v4:$rootProject.supportLibraryVersion"
-    compile "com.android.support:customtabs:$rootProject.supportLibraryVersion"
     compile 'com.android.support:appcompat-v7:24.2.1'
     compile 'com.squareup.retrofit:retrofit:2.0.0-beta2'
     compile 'com.squareup.retrofit:converter-gson:2.0.0-beta2'

@@ -5,7 +5,11 @@
               android:layout_width="match_parent"
               android:padding="@dimen/padding_medium"
               android:layout_height="match_parent">
+    <com.razor.myprogressbar.view.WrapperLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
     <TextView
+        android:visibility="gone"
         android:textSize="@dimen/textsize_xmedium"
         android:textStyle="bold"
         android:text="@string/apartment_type"
@@ -13,6 +17,7 @@
         android:layout_height="wrap_content"/>
     <com.razor.myprogressbar.view.PredicateLayout
         android:layout_marginTop="@dimen/margin_xxsmall"
+        android:visibility="gone"
         android:padding="@dimen/padding_small"
         android:id="@+id/apartment_container"
         android:layout_width="match_parent"
@@ -47,6 +52,7 @@
     </com.razor.myprogressbar.view.PredicateLayout>
     <TextView
         android:textStyle="bold"
+        android:visibility="gone"
         android:layout_marginTop="@dimen/margin_xxsmall"
         android:textColor="@color/grey"
         android:textSize="@dimen/textsize_xmedium"
@@ -54,6 +60,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <com.razor.myprogressbar.view.PredicateLayout
+        android:visibility="gone"
         android:layout_marginTop="@dimen/margin_xxsmall"
         android:id="@+id/property_container"
         android:layout_width="match_parent"
@@ -86,6 +93,7 @@
     </com.razor.myprogressbar.view.PredicateLayout>
 
     <TextView
+        android:visibility="gone"
         android:layout_marginTop="@dimen/margin_xxsmall"
         android:text="@string/furnished_type"
         android:textSize="@dimen/textsize_xmedium"
@@ -93,6 +101,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <com.razor.myprogressbar.view.PredicateLayout
+        android:visibility="gone"
         android:layout_marginTop="@dimen/margin_xxsmall"
         android:id="@+id/furnished_container"
         android:layout_width="match_parent"
@@ -117,6 +126,7 @@
             android:layout_height="wrap_content"/>
     </com.razor.myprogressbar.view.PredicateLayout>
     <LinearLayout
+        android:visibility="gone"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

@@ -74,7 +74,7 @@ public class PredicateLayout extends ViewGroup {
 
     @Override
     protected boolean checkLayoutParams(LayoutParams p) {
-        return (p instanceof LayoutParams);
+        return (p != null);
     }
 
     @Override

@@ -3,7 +3,26 @@
     android:layout_below="@+id/appBar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.v7.widget.CardView
+        android:id="@+id/message_box"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_xsmall"
+        app:cardCornerRadius="0dp"
+        android:background="?attr/selectableItemBackground"
+        android:visibility="gone">
+        <TextView
+            android:id="@+id/no_pending_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="@string/no_item_present"
+            android:layout_margin="@dimen/margin_xsmall"
+            android:layout_centerHorizontal="true"/>
+    </android.support.v7.widget.CardView>
+
 
     <android.support.v7.widget.RecyclerView
         android:visibility="gone"

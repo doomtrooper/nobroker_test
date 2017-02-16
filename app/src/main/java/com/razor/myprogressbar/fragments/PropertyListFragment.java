@@ -2,12 +2,14 @@ package com.razor.myprogressbar.fragments;
 
 
 import android.app.Fragment;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +18,7 @@ import android.widget.ProgressBar;
 import com.razor.myprogressbar.Constants;
 import com.razor.myprogressbar.R;
 import com.razor.myprogressbar.Utility;
+import com.razor.myprogressbar.activities.NoBrokerActivity;
 import com.razor.myprogressbar.adapter.PropertyAdapter;
 import com.razor.myprogressbar.api.ApiClient;
 import com.razor.myprogressbar.listeners.LoaderHelper;
@@ -52,6 +55,8 @@ public class PropertyListFragment extends Fragment implements LoaderHelper{
     private ArrayList<String> buildingType;
     private ArrayList<String> furnishingType;
     private ArrayList<Datum> mPropertyList;
+
+    private int NOTIFICATION_ID;
 
     public static final String TAG = PropertyListFragment.class.getSimpleName();
     private OnFragmentInteraction mListener;
@@ -179,6 +184,7 @@ public class PropertyListFragment extends Fragment implements LoaderHelper{
     }
 
     public void getPropertyList(){
+        NOTIFICATION_ID = Utility.createNotifacation(getActivity().getApplicationContext(), NoBrokerActivity.class);
         if (isLoading) return;
         isLoading = true;
         call = ApiClient.getInstance(getActivity()).getmApiService().fetchRestaurantsDetails(String.valueOf(mPageNumber));
@@ -186,6 +192,7 @@ public class PropertyListFragment extends Fragment implements LoaderHelper{
             @Override
             public void onResponse(retrofit.Response<NoBrokerResponse> response, Retrofit retrofit) {
                 isLoading = false;
+                removeNotification(NOTIFICATION_ID);
                 if (response.isSuccess()){
                     if (mPageNumber==1){
                         mProgressBar.setVisibility(View.GONE);
@@ -204,9 +211,22 @@ public class PropertyListFragment extends Fragment implements LoaderHelper{
             public void onFailure(Throwable t) {
                 isLoading = false;
                 showError(t.getMessage());
+                removeNotification(NOTIFICATION_ID);
             }
         });
     }
+
+    public void cancelApiCall(){
+        Log.d(PropertyListFragment.class.getSimpleName(),"Cancelling API call....");
+        call.cancel();
+        removeNotification(NOTIFICATION_ID);
+    }
+
+    private void removeNotification(int notificationId) {
+        NotificationManager nMgr = (NotificationManager) getActivity().getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
+        nMgr.cancel(notificationId);
+    }
+
 
     @Override
     public void onAttach(Context context) {

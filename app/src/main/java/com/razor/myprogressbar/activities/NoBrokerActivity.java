@@ -1,22 +1,40 @@
 package com.razor.myprogressbar.activities;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import com.razor.myprogressbar.Constants;
 import com.razor.myprogressbar.R;
+import com.razor.myprogressbar.fragments.BlankFragment;
 import com.razor.myprogressbar.fragments.FilterFragment;
 import com.razor.myprogressbar.fragments.PropertyListFragment;
 
 import java.util.ArrayList;
 
-public class NoBrokerActivity extends AppCompatActivity implements PropertyListFragment.OnFragmentInteraction,FilterFragment.OnFragmentInteractionListener {
+public class NoBrokerActivity extends AppCompatActivity implements FragmentManager.OnBackStackChangedListener,PropertyListFragment.OnFragmentInteraction,FilterFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_no_broker);
-        setPropertyListFragment();
+        //setPropertyListFragment();
+        getFragmentManager().addOnBackStackChangedListener(this);
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        /*getFragmentManager().beginTransaction().add(R.id.main_container,PropertyListFragment.newInstance()).addToBackStack(null)
+                            .add(R.id.main_container, BlankFragment.newInstance("dfghj","fghj")).addToBackStack(null)
+                            .add(R.id.main_container,PropertyListFragment.newInstance()).addToBackStack(null)
+                            .add(R.id.main_container, BlankFragment.newInstance("dfghj","fghj")).addToBackStack(null)
+                            .commit();*/
+        Log.d("activity","Back Stack count: "+getFragmentManager().getBackStackEntryCount());
+        getFragmentManager().beginTransaction().add(R.id.main_container,PropertyListFragment.newInstance()).addToBackStack(null).commit();
+        getFragmentManager().beginTransaction().add(R.id.main_container, BlankFragment.newInstance("asdf3","qwer3")).addToBackStack(null).commit();
+        getFragmentManager().beginTransaction().add(R.id.main_container,PropertyListFragment.newInstance()).addToBackStack(null).commit();
+        getFragmentManager().beginTransaction().add(R.id.main_container, BlankFragment.newInstance("asdf4","qwer4")).addToBackStack(null).commit();
+        getFragmentManager().beginTransaction().add(R.id.main_container,BlankFragment.newInstance("asdf5","qwer5")).addToBackStack(null).commit();
     }
 
     private void setPropertyListFragment() {
@@ -28,11 +46,19 @@ public class NoBrokerActivity extends AppCompatActivity implements PropertyListF
     }
 
     @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        if (getFragmentManager().getBackStackEntryCount()<1){
-            finish();
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        Log.d("asdfghj","cancel clicked");
+        PropertyListFragment propertyFrag = (PropertyListFragment)getFragmentManager().findFragmentByTag(PropertyListFragment.TAG);
+        if (propertyFrag!=null){
+            propertyFrag.cancelApiCall();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Log.d("activity","Back Stack count: "+getFragmentManager().getBackStackEntryCount());
+        super.onBackPressed();
     }
 
     @Override
@@ -58,5 +84,10 @@ public class NoBrokerActivity extends AppCompatActivity implements PropertyListF
             // Call a method in the PropertyListFragment to update its content
             propertyFrag.applyFilters(propertyType,buildingType,furnishingType);
         }
+    }
+
+    @Override
+    public void onBackStackChanged() {
+        Log.d("activity","Back Stack count listener: "+getFragmentManager().getBackStackEntryCount());
     }
 }

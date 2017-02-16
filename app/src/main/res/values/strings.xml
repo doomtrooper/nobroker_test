@@ -1,11 +1,5 @@
 <resources>
-    <string name="app_name">NoBroker</string>
-    <string name="harry_cafe">Harry\'s Bar + Cafe</string>
-    <string name="cafe">Cafe, American</string>
-    <string name="cost_for_two">$$$$</string>
-    <string name="rating">3.9</string>
-    <string name="variouss_outlets">4 outlets</string>
-    <string name="swiggy_image">Swiggy Image</string>
+    <string name="app_name">Testing</string>
     <string name="retry">Retry</string>
     <string name="cancel">Cancel</string>
     <string name="no_network">No Internet available.</string>
@@ -37,4 +31,5 @@
     <string name="semi_furnished">Semi Furnished</string>
     <string name="apply">Apply</string>
     <string name="clear">Clear</string>
+    <string name="no_item_present">Sorry, could;nt fetcg any item.</string>
 </resources>
