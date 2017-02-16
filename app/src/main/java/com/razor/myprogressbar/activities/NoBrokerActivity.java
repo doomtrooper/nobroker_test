@@ -24,17 +24,17 @@ public class NoBrokerActivity extends AppCompatActivity implements FragmentManag
         //setPropertyListFragment();
         getFragmentManager().addOnBackStackChangedListener(this);
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-        /*getFragmentManager().beginTransaction().add(R.id.main_container,PropertyListFragment.newInstance()).addToBackStack(null)
+        getFragmentManager().beginTransaction().add(R.id.main_container,PropertyListFragment.newInstance()).addToBackStack(null)
                             .add(R.id.main_container, BlankFragment.newInstance("dfghj","fghj")).addToBackStack(null)
                             .add(R.id.main_container,PropertyListFragment.newInstance()).addToBackStack(null)
                             .add(R.id.main_container, BlankFragment.newInstance("dfghj","fghj")).addToBackStack(null)
-                            .commit();*/
+                            .commit();
         Log.d("activity","Back Stack count: "+getFragmentManager().getBackStackEntryCount());
-        getFragmentManager().beginTransaction().add(R.id.main_container,PropertyListFragment.newInstance()).addToBackStack(null).commit();
+        /*getFragmentManager().beginTransaction().add(R.id.main_container,PropertyListFragment.newInstance()).addToBackStack(null).commit();
         getFragmentManager().beginTransaction().add(R.id.main_container, BlankFragment.newInstance("asdf3","qwer3")).addToBackStack(null).commit();
         getFragmentManager().beginTransaction().add(R.id.main_container,PropertyListFragment.newInstance()).addToBackStack(null).commit();
         getFragmentManager().beginTransaction().add(R.id.main_container, BlankFragment.newInstance("asdf4","qwer4")).addToBackStack(null).commit();
-        getFragmentManager().beginTransaction().add(R.id.main_container,BlankFragment.newInstance("asdf5","qwer5")).addToBackStack(null).commit();
+        getFragmentManager().beginTransaction().add(R.id.main_container,BlankFragment.newInstance("asdf5","qwer5")).addToBackStack(null).commit();*/
     }
 
     private void setPropertyListFragment() {
